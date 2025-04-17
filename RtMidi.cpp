@@ -4118,7 +4118,7 @@ void MidiInJack :: connect()
   // Initialize JACK client
   if (( data->client = jack_client_open( clientName.c_str(), JackNoStartServer, NULL )) == 0) {
     errorString_ = "MidiInJack::initialize: JACK server not running?";
-    error( RtMidiError::WARNING, errorString_ );
+    error( RtMidiError::DRIVER_ERROR, errorString_ );
     return;
   }
 
@@ -4331,7 +4331,7 @@ void MidiOutJack :: connect()
   // Initialize JACK client
   if ( ( data->client = jack_client_open( clientName.c_str(), JackNoStartServer, NULL ) ) == 0 ) {
     errorString_ = "MidiOutJack::initialize: JACK server not running?";
-    error( RtMidiError::WARNING, errorString_ );
+    error( RtMidiError::DRIVER_ERROR, errorString_ );
     return;
   }
 
